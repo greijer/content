@@ -59,12 +59,14 @@ Make sure to follow these steps to correctly configure your VM or device running
     
     To do this, issue the following commands in your PowerShell connection: 
     
-    * `net user Administrator [new password]` where `[new password]` represents a strong password of your choice.  
+    * `net user Administrator [new password]` where `[new password]` represents a strong password of your choice. Notice that changing this password may disconnect your current session.  
 
     * `schtasks /Delete /TN Microsoft\Windows\IoT\Startup /F` (this only needs to be done once)
 
 
 ###Configure your Windows IoT Core device
+
+* Notice: If the local powershell command parser show "invalid command"-errors for the commands below. Just press enter twice after each command to work around it.
 
 * To be able to deploy applications from Visual Studio 2015, you will need to make sure the Visual Studio Remote Debugger is running on your Windows IoT Core device. The remote debugger should launch automatically at machine boot time. To double check, use the `tlist` command to list all the running processes from powershell. There should be two instances of msvsmon.exe running on the device.
 
